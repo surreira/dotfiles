@@ -21,7 +21,7 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 
 if ! zplug check; then
-    zplug install
+  zplug install
 fi
 
 zplug load
@@ -33,3 +33,11 @@ SPACESHIP_CHAR_PREFIX="💻 🔨"
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
+
+if [[ ! -a $HOME/.zfunc/_fnm ]]; then
+  mkdir $HOME/.zfunc
+  fnm completions --shell=zsh > $HOME/.zfunc/_fnm
+fi
+
+fpath+=$HOME/.zfunc
+compinit
