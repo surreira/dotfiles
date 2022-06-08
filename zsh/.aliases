@@ -1,4 +1,6 @@
 # DIRECTORY
+alias ..="cd .."
+alias cd..="cd .."
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
