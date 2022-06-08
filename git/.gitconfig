@@ -1,0 +1,7 @@
+[user]
+	name = Abel Surreira
+	email = surreira@gmail.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
