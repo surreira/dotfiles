@@ -50,3 +50,14 @@ brew install font-fira-code-nerd-font
 ```
 
 Note: before installing the themes, `stow alacritty` first.
+
+### NeoVim
+
+To help with NeoVim customization I'm using [packer.nvim](https://github.com/wbthomason/packer.nvim) plugin manager. To install Packer:
+
+```bash
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+Note: before installing Packer, `stow neovim` first.
