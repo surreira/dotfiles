@@ -2,6 +2,31 @@
 	name = Abel Surreira
 	email = surreira@gmail.com
 [core]
-	editor = vim
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
 [init]
 	defaultBranch = main
+[interactive]
+	diffFilter = "diff-so-fancy --patch"
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
