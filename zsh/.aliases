@@ -1,15 +1,3 @@
-# DIRECTORY
-alias ..="cd .."
-alias cd..="cd .."
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-alias lsa='ls -lah'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
-
 # GIT
 alias gs='git status -sb'
 alias gss='git status'
@@ -17,5 +5,25 @@ alias glog='git log'
 alias gl='git log --oneline --decorate --stat'
 alias gd='git diff --word-diff'
 alias graph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias gcp="echo No 🚫;"
-alias gco="git checkout"
+alias gcp='echo No 🚫;'
+alias gco='git checkout'
+
+# DOCKER
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dpa='docker ps -a'
+
+# CLI-IMPROVED
+## https://remysharp.com/2018/08/23/cli-improved
+## https://dev.to/lissy93/cli-tools-you-cant-live-without-57f6
+alias cat='bat'
+alias diff='diff --color'
+alias du='dua i'
+alias grep='grep --color=auto'
+alias htop='bpytop'
+alias ncdu='ncdu --color dark -rr -x'
+alias pn='pnpm'
+alias ping='gping'
+alias tree='tre'
+alias vi='nvim'
+alias vim='nvim'
