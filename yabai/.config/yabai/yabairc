@@ -1,0 +1,26 @@
+yabai -m config layout bsp
+yabai -m config top_padding 15
+yabai -m config bottom_padding 15
+yabai -m config left_padding 15
+yabai -m config right_padding 15
+yabai -m config window_gap 15
+yabai -m config split_ratio 0.50
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="Calculator" manage=off
+yabai -m rule --add app="Messages" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="Reminders" manage=off
+yabai -m rule --add app="Simulator" manage=off
+yabai -m rule --add app="Stickies" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="Weather" manage=off
+
+yabai -m rule --add app="1Password" manage=off
+yabai -m rule --add app="^Camo Studio$" manage=off
+yabai -m rule --add app="Raycast" manage=off
