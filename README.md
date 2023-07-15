@@ -4,10 +4,10 @@
 
 Hey there! This is my personal collection of macOS and Linux dotfiles that I use to customize my development environments. In this repository, you'll find my configurations for:
 
-- [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/);
-- Aliases for the terminal;
+- [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/) and the [Nord](https://www.nordtheme.com/) theme;
+- Custom [NeoVim](https://neovim.io/) PDE setup;
 - [Alacritty](https://github.com/alacritty/alacritty) and [tmux](https://github.com/tmux/tmux/);
-- [Git](https://git-scm.com/), [NeoVim](https://github.com/neovim/neovim), and window management customizations for [Yabai](https://github.com/koekeishiya/yabai) and [SKHD](https://github.com/koekeishiya/skhd).
+- Window management and keyboard customizations for [Yabai](https://github.com/koekeishiya/yabai) and [SKHD](https://github.com/koekeishiya/skhd).
 
 I use [GNU Stow](https://www.gnu.org/software/stow/) to manage these dotfiles, making it easy to install and manage them on multiple machines. To get started, follow these steps:
 
@@ -27,8 +27,26 @@ Feel free to take a look at my dotfiles and use them as inspiration for your own
 
 ### tmux
 
-In order to extend tmux functionalities, like using a custom theme, I have [TPM](https://github.com/tmux-plugins/tpm) setup in tmux.conf. To install TPM follow the instructions from the project repository, the current install instructions are:
+In order to extend tmux functionalities, like using a custom theme, I have [TPM](https://github.com/tmux-plugins/tpm) setup in `tmux.conf`. To install TPM follow the instructions from the project repository, the current install instructions are:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
+
+Note: before installing TPM, `stow tmux` first.
+
+### Alacritty 
+
+To add a custom theme to Alacritty terminal I'm using the official [themes repo](https://github.com/alacritty/alacritty-theme) and the current install instructions are:
+
+```bash
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+```
+
+Font requirement:
+
+```bash
+brew install font-fira-code-nerd-font
+```
+
+Note: before installing the themes, `stow alacritty` first.
