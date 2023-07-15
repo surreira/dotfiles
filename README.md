@@ -7,7 +7,7 @@ Hey there! This is my personal collection of macOS and Linux dotfiles that I use
 - [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/) and the [Nord](https://www.nordtheme.com/) theme;
 - Custom [NeoVim](https://neovim.io/) PDE setup;
 - [Alacritty](https://github.com/alacritty/alacritty) and [tmux](https://github.com/tmux/tmux/);
-- Window management and keyboard customizations for [Yabai](https://github.com/koekeishiya/yabai) and [SKHD](https://github.com/koekeishiya/skhd).
+- Window management and keyboard customizations for [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd).
 
 I use [GNU Stow](https://www.gnu.org/software/stow/) to manage these dotfiles, making it easy to install and manage them on multiple machines. To get started, follow these steps:
 
