@@ -16,9 +16,9 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to manage these dotfiles, m
 1. Use Stow to install the separate dotfiles you're interested in, for example:
    - single configuration `stow zsh`
    - or with multiple options: `stow zsh spaceship tmux git neovim`
-   - also, setting the target directory with: `stow --target=/path/to/target skdh yabai` 
+   - also, setting the target directory with: `stow --target=/path/to/target zsh` 
 
-That's it! All these settings should turn your command line interface into a personalized development environment up and running without any hassle.
+That's it! All these settings should turn the command line interface into a personalized development environment up and running without hassle.
 
 Feel free to take a look at my dotfiles and use them as inspiration for your own customization.
 
