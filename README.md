@@ -6,7 +6,7 @@ Hey there! This is my personal collection of macOS and Linux dotfiles that I use
 
 - [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/);
 - Aliases for the terminal;
-- [Alacritty](https://github.com/alacritty/alacritty) and [Tmux](https://github.com/tmux/tmux/);
+- [Alacritty](https://github.com/alacritty/alacritty) and [tmux](https://github.com/tmux/tmux/);
 - [Git](https://git-scm.com/), [NeoVim](https://github.com/neovim/neovim), and window management customizations for [Yabai](https://github.com/koekeishiya/yabai) and [SKHD](https://github.com/koekeishiya/skhd).
 
 I use [GNU Stow](https://www.gnu.org/software/stow/) to manage these dotfiles, making it easy to install and manage them on multiple machines. To get started, follow these steps:
@@ -22,3 +22,13 @@ That's it! All these settings should turn the command line interface into a pers
 
 Feel free to take a look at my dotfiles and use them as inspiration for your own customization.
 
+
+## Detailed Install Instructions
+
+### tmux
+
+In order to extend tmux functionalities, like using a custom theme, I have [TPM](https://github.com/tmux-plugins/tpm) setup in tmux.conf. To install TPM follow the instructions from the project repository, the current install instructions are:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
