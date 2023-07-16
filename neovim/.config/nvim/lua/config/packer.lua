@@ -6,31 +6,55 @@ return require('packer').startup(function(use)
   -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-sleuth'
 
+  -- Git related signs in the gutter
+  use 'lewis6991/gitsigns.nvim'
+
   -- Show pending keybinds
   use 'folke/which-key.nvim'
+
+  -- Nord theme
+  use {
+      'shaunsingh/nord.nvim', as = 'nord',
+      config = function()
+          vim.cmd('colorscheme nord')
+      end
+  }
+
+  -- Lualine as statusline
+  use 'nvim-lualine/lualine.nvim'
 
   -- Indentation guides
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- Comment visual regions/lines
+  use 'tpope/vim-commentary'
+
+  -- Fuzzy finder
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({
-	  'shaunsingh/nord.nvim',
-	  as = 'nord',
-	  config = function()
-		  vim.cmd('colorscheme nord')
-	  end
-  })
+  -- Bufferline "tabs"
+  use {
+      'akinsho/bufferline.nvim', tag = 'v3.*',
+      requires = { {'nvim-tree/nvim-web-devicons'} }
+  }
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use("nvim-treesitter/nvim-treesitter-context")
+  -- Highlight, edit, and navigate code
+  use {
+      'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }
+  }
+  use 'nvim-treesitter/nvim-treesitter-context'
+
+  -- Undo history visualizer
   use 'mbbill/undotree'
-  -- use 'nvim-tree/nvim-web-devicons'
+
   use 'kyazdani42/nvim-web-devicons'
+
+  -- File explorer
   use 'nvim-tree/nvim-tree.lua'
+
   use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
@@ -52,12 +76,4 @@ return require('packer').startup(function(use)
       }
   }
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'tpope/vim-commentary'
-  use 'nvim-lualine/lualine.nvim'
-  use {
-	  'akinsho/bufferline.nvim', tag = 'v3.*',
-  }
-  use {
-      'lewis6991/gitsigns.nvim', tag = 'release',
-  }
 end)
