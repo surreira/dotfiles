@@ -3,6 +3,15 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-sleuth'
+
+  -- Show pending keybinds
+  use 'folke/which-key.nvim'
+
+  -- Indentation guides
+  use 'lukas-reineke/indent-blankline.nvim'
+
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  requires = { {'nvim-lua/plenary.nvim'} }
