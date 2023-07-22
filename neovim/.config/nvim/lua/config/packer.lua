@@ -35,12 +35,6 @@ return require('packer').startup(function(use)
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  -- Bufferline "tabs"
-  use {
-      'akinsho/bufferline.nvim', tag = 'v3.*',
-      requires = { {'nvim-tree/nvim-web-devicons'} }
-  }
-
   -- Highlight, edit, and navigate code
   use {
       'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }
