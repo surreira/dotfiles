@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+TITLE=$(figlet -k -f big "Brew")
+figlet -k -f big "Brew"
+
+echo "[1] Updating brew..."
+brew update
+
+echo "[2] Checking for outdated brew packages..."
+OUTDATED=$(brew outdated)
+
+if [[ -n "$OUTDATED" ]]; then
+    echo $OUTDATED
+    read -p "[3] Update all outdated packages? [y]/n " -n 1 -r
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        brew upgrade
+        brew cleanup --prune=all
+    fi
+else
+    echo "[3] All brew packages are up to date."
+fi
+
+echo "[4] Checking for brew issues..."
+brew doctor
