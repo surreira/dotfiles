@@ -38,4 +38,4 @@ zplug load
 source $HOME/.aliases
 
 # fnm
-eval "`fnm env`"
+eval "$(fnm env --use-on-cd)"
