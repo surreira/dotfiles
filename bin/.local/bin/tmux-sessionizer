@@ -5,7 +5,8 @@ if [[ $# -eq 1 ]]; then
 else
     declare -a DEVELOPER=( $(find ~/Developer -mindepth 1 -maxdepth 1 -type d) )
     declare -a PROJECTS=( $(find ~/Projects -mindepth 2 -maxdepth 2 -type d) )
-    FOLDERS=( "${DEVELOPER[@]}" "${PROJECTS[@]}" )
+    declare -a SANDBOX=( $(find ~/Developer/SANDBOX -mindepth 1 -maxdepth 1 -type d) )
+    FOLDERS=( "${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}" )
 
     selected=$(printf "%s\n" "${FOLDERS[@]}" | fzf)
 fi
@@ -28,4 +29,3 @@ fi
 
 tmux attach-session -t $selected_name
 tmux switch-client -t $selected_name
-
