@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+
 # Terminal History
 export HISTSIZE=50000
 export SAVEHIST=10000
@@ -13,19 +15,21 @@ setopt share_history         # share hist between sessions
 source $HOME/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:"zplug --self-manage"
+zplug 'b4b4r07/zplug-doctor', lazy:yes
 zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 zplug "spaceship-prompt/spaceship-react"
+zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "lib/completion", from:oh-my-zsh
 zplug "lib/directories", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "paulirish/git-open", as:plugin
 zplug "plugins/fnm", from:oh-my-zsh
 zplug "plugins/npm", from:oh-my-zsh
 zplug "plugins/yarn", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
+zplug "paulirish/git-open", as:plugin
 zplug "djui/alias-tips"
 
 if ! zplug check; then
