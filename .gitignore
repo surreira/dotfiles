@@ -1,6 +1,6 @@
 .DS_Store
 alacritty/**/themes
 tmux/**/plugins
-neovim/*/nvim/plugin
+lazy-lock.json
 *.zwc
 *.log

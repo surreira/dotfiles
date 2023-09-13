@@ -1,41 +1,56 @@
-local lsp = require('lsp-zero')
+local on_attach = function(_, bufnr)
+  local nmap = function(keys, func, desc)
+    if desc then
+      desc = 'LSP: ' .. desc
+    end
 
-lsp.preset('recommended')
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  end
 
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'tailwindcss',
-    'docker_compose_language_service',
-    'pyright',
-    'html',
-})
+  nmap("<leader>f", vim.lsp.buf.format, "[F]ormat current buffer with LSP")
+  nmap("<leader>vrn", vim.lsp.buf.rename, "[R]e[n]ame")
+  nmap("<leader>vca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+end
 
-lsp.nvim_workspace()
+local servers = {
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  pyright = { filetypes = { 'python' } },
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-})
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
+}
 
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
+-- Setup neovim lua configuration
+require('neodev').setup()
 
-lsp.set_preferences({
-    suggest_lsp_servers = false
-})
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-end)
+-- Ensure the servers above are installed
+local mason_lspconfig = require 'mason-lspconfig'
 
-lsp.setup()
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+}
+
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+    }
+  end
+}
