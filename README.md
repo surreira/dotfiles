@@ -4,7 +4,7 @@
 
 Hey there! This is my personal collection of macOS and Linux dotfiles that I use to customize my development environments. In this repository, you'll find my configurations for:
 
-- [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/) and the [Nord](https://www.nordtheme.com/) theme;
+- [Zsh](https://www.zsh.org/), with the [Spaceship Prompt](https://spaceship-prompt.sh/) and the Tokyonight theme;
 - Custom [NeoVim](https://neovim.io/) PDE setup;
 - [Alacritty](https://github.com/alacritty/alacritty) and [tmux](https://github.com/tmux/tmux/);
 - Window management and keyboard customizations for [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd).
@@ -53,11 +53,7 @@ Note: before installing the themes, `stow alacritty` first.
 
 ### NeoVim
 
-To help with NeoVim customization I'm using [packer.nvim](https://github.com/wbthomason/packer.nvim) plugin manager. To install Packer:
+I am now using [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager, instructions will be available "soon".
+~~To help with NeoVim customization I'm using [packer.nvim](https://github.com/wbthomason/packer.nvim) plugin manager. To install Packer:~~
 
-```bash
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
 
-Note: before installing Packer, `stow neovim` first.
