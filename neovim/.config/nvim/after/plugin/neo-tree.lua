@@ -8,6 +8,8 @@ require("neo-tree").setup {
 			hide_by_name = {
 				".DS_Store",
 				"thumbs.db",
+				"node_modules",
+				"build",
 			},
 			never_show = {
 				".git",
