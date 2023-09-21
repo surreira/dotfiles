@@ -105,6 +105,9 @@ local plugins = {
         build = ':TSUpdate'
     },
 
+    -- File formatter
+    { 'mhartington/formatter.nvim' },
+
     -- File explorer
     {
         "nvim-neo-tree/neo-tree.nvim",

@@ -43,3 +43,7 @@ end, { desc = "[S]earch [W]ord in workspace" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = 'Open diagnostic message' })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
+
+-- Format keymaps
+vim.keymap.set("n", "<leader>ff", ":Format<CR>", { desc = '[F]ile [F]ormat' })
+vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>", { desc = '[F]ormat and write file' })
