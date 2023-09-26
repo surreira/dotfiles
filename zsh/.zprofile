@@ -19,3 +19,13 @@ fi
 
 # Spaceship Prompt (https://github.com/spaceship-prompt/spaceship-prompt)
 export ZSH_THEME="spaceship"
+
+# pyenv settings (https://github.com/pyenv/pyenv)
+if command -v pyenv &> /dev/null; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
+# PostgreSQL (installed via homebrew)
+PATH="/usr/local/opt/postgresql@11/bin:$PATH"
