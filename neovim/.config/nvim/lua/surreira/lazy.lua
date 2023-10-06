@@ -77,7 +77,7 @@ local plugins = {
     },
 
     -- Indentation guides
-    'lukas-reineke/indent-blankline.nvim',
+    { 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
 
     -- Fuzzy finder
     {
