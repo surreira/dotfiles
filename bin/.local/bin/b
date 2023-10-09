@@ -11,7 +11,7 @@ OUTDATED=$(brew outdated)
 
 if [[ -n "$OUTDATED" ]]; then
     echo $OUTDATED
-    read -p "[3] Update all outdated packages? [y]/n " -n 1 -r
+    read -p "[3] Update all outdated packages? y/[n] " -n 1 -r
     case "$REPLY" in
         [Yy]) echo
             brew upgrade
