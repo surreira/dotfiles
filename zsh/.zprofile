@@ -28,4 +28,4 @@ if command -v pyenv &> /dev/null; then
 fi
 
 # PostgreSQL (installed via homebrew)
-PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
