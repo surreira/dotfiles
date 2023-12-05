@@ -15,6 +15,9 @@ if [[ $OSTYPE = (darwin)* ]]; then
 
     # Homebrew path
     eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # completions
+    fpath+="/opt/homebrew/share/zsh/site-functions"
 fi
 
 # Spaceship Prompt (https://github.com/spaceship-prompt/spaceship-prompt)
