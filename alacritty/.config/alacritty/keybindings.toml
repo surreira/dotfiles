@@ -1,0 +1,13 @@
+[keyboard]
+bindings = [
+# Skip word left
+{ key = "Left", mods = "Alt", chars = "\u001b\u0062" },
+# Skip word right
+{ key = "Right", mods = "Alt", chars = "\u001b\u0066" },
+# Home
+{ key = "Left", mods = "Command", chars = "\u001B\u004F\u0048" },
+# End
+{ key = "Right", mods = "Command", chars = "\u001B\u004F\u0046" },
+# Delete line
+{ key = "Back", mods = "Command", chars = "\u0015" },
+]
