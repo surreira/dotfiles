@@ -10,4 +10,36 @@ bindings = [
 { key = "Right", mods = "Command", chars = "\u001B\u004F\u0046" },
 # Delete line
 { key = "Back", mods = "Command", chars = "\u0015" },
+# New tmux window (Prefix + c)
+{ key = "T", mods = "Command", chars = "\u0001\u0063" },
+# Close tmux window (Prefix + x)
+{ key = "W", mods = "Command", chars = "\u0001\u0078" },
+# Select new attached tmux session (Prefix + s)
+{ key = "K", mods = "Command", chars = "\u0001\u0073" },
+# Rename tmux window (Prefix + ,)
+{ key = "Comma", mods = "Command", chars = "\u0001\u002c" },
+# Select tmux window 1~9 (Prefix + 1~9)
+{ key = "Key1", mods = "Command", chars = "\u0001\u0031" },
+{ key = "Key2", mods = "Command", chars = "\u0001\u0032" },
+{ key = "Key3", mods = "Command", chars = "\u0001\u0033" },
+{ key = "Key4", mods = "Command", chars = "\u0001\u0034" },
+{ key = "Key5", mods = "Command", chars = "\u0001\u0035" },
+{ key = "Key6", mods = "Command", chars = "\u0001\u0036" },
+{ key = "Key7", mods = "Command", chars = "\u0001\u0037" },
+{ key = "Key8", mods = "Command", chars = "\u0001\u0038" },
+{ key = "Key9", mods = "Command", chars = "\u0001\u0039" },
+# Change to next tmux window (Prefix + n)
+{ key = "Tab", mods = "Control", chars = "\u0001\u006e" },
+# Toggle tmux zoom state of the current pane (Prefix + z)
+{ key = "Z", mods = "Command", chars = "\u0001\u007a" },
+# Split the current tmux pane into two, top and bottom (Prefix + ")
+{ key = "S", mods = "Command", chars = "\u0001\u0022" },
+# Split the current tmux pane into two, left and right (Prefix + %)
+{ key = "S", mods = "Command | Shift", chars = "\u0001\u0025" },
+# Open lazygit (Prefix + g)
+{ key = "G", mods = "Command", chars = "\u0001\u0067" },
+# Open lazydocker (Prefix + b)
+{ key = "B", mods = "Command", chars = "\u0001\u0062" },
+# Open tmux-sessionizer (Prefix + f)
+{ key = "F", mods = "Command", chars = "\u0001\u0066" },
 ]
