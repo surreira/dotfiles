@@ -27,3 +27,7 @@ alias ping='gping'
 alias tree='tre'
 alias vi='nvim'
 alias vim='nvim'
+
+# OTHER
+alias ta='tmux a'
+alias tls='tmux ls'

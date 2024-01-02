@@ -1,5 +1,5 @@
 .DS_Store
-alacritty/**/themes
+alacritty/**/colors.toml
 tmux/**/plugins
 lazy-lock.json
 *.zwc
