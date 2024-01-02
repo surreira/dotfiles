@@ -31,6 +31,8 @@ neovim_theme() {
 
 # change tmux color scheme
 tmux_theme() {
+    /opt/homebrew/bin/tmux set -g @tokyonight_auto 0
+
     case "$1" in
         light)
             /opt/homebrew/bin/tmux set -g @tokyonight_theme 'day'
