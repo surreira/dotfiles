@@ -20,6 +20,3 @@ normal = { family = "FiraCode Nerd Font" }
 size = 14
 offset = { x = 0, y = 2 }
 glyph_offset = { x = 0, y = 1 }
-
-
-
