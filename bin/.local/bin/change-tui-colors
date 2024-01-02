@@ -1,0 +1,76 @@
+#!/usr/bin/env sh
+
+THEME="light"
+if [[ -z $1 ]]; then
+    MODE=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
+    [ $? -eq 0 ] && THEME="dark"
+else
+    case $1 in
+        light)
+            THEME="light"
+            ;;
+        dark)
+            THEME="dark"
+            ;;
+    esac
+fi
+
+# change neovim colors
+neovim_theme() {
+    for addr in $(/opt/homebrew/bin/nvr --serverlist); do
+        case $1 in
+            dark)
+                /opt/homebrew/bin/nvr --servername "$addr" -c "set background=dark"
+                ;;
+            light)
+                /opt/homebrew/bin/nvr --servername "$addr" -c "set background=light"
+                ;;
+        esac
+    done
+}
+
+# change tmux color scheme
+tmux_theme() {
+    case "$1" in
+        light)
+            /opt/homebrew/bin/tmux set -g @tokyonight_theme 'day'
+            ;;
+        dark)
+            /opt/homebrew/bin/tmux set -g @tokyonight_theme 'storm'
+            ;;
+    esac
+
+    /opt/homebrew/bin/tmux source-file ~/.config/tmux/tmux.conf
+}
+
+# change alacritty color scheme
+alacritty_theme() {
+    local THEME=$1
+    local ALACRITTY_PATH=~/.config/alacritty
+
+    if [[ ! -d $ALACRITTY_PATH ]]; then
+        echo "Directory $ALACRITTY_PATH doesn't exist"
+        return
+    fi
+
+    local CONFIG_FILE="${ALACRITTY_PATH}/alacritty.toml"
+
+    if [[ ! -f $CONFIG_FILE ]]; then
+        echo "File $CONFIG_FILE doesn't exist"
+        return
+    fi
+
+    if [[ $THEME == "light" ]]; then
+        cp -f "${ALACRITTY_PATH}/tokyonight_day.toml" "${ALACRITTY_PATH}/colors.toml"
+    elif [[ $THEME == "dark" ]]; then
+        cp -f "${ALACRITTY_PATH}/tokyonight_storm.toml" "${ALACRITTY_PATH}/colors.toml"
+    fi
+
+    # little hack to force reload alacritty configuration of colors file
+    echo "" >> $CONFIG_FILE
+    sed -i '' -e '$d' $CONFIG_FILE
+}
+
+neovim_theme $THEME
+tmux_theme $THEME
+alacritty_theme $THEME
