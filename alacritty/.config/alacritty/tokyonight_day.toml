@@ -1,7 +1,6 @@
 # TokyoNight Alacritty Colors (day)
 # https://github.com/folke/tokyonight.nvim/blob/main/extras/alacritty/tokyonight_day.yml
 
-
 # Default colors
 [colors.primary]
 background = '#e1e2e7'
