@@ -56,4 +56,17 @@ Note: before installing the themes, `stow alacritty` first.
 I am now using [lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager, instructions will be available "soon".
 ~~To help with NeoVim customization I'm using [packer.nvim](https://github.com/wbthomason/packer.nvim) plugin manager. To install Packer:~~
 
+### Enabling Automatic Light/Dark Mode Switching in Terminal
 
+Follow these steps to enable automatic light and dark mode switching in terminal applications:
+
+1. Start by cloning the [dark-mode-notify](https://github.com/bouk/dark-mode-notify) repository.
+   `git clone https://github.com/bouk/dark-mode-notify`
+1. Install the package using `make`. Use `sudo` to avoid permission issues in `/usr/local/bin` directory:
+   `sudo make install`
+1. Copy the provided `.plist` file to `~/Library/LaunchAgents/` which is a directory where user-specific agents are stored:
+   `cp dev.dezdez.dark-mode-notify.plist ~/Library/LaunchAgents/`
+1. Use `launchctl` to keep the application running on boot:
+   `launchctl load -w ~/Library/LaunchAgents/dev.dezdez.dark-mode-notify.plist`
+
+By following these steps, automatic light/dark mode switching should be enabled at least in these TUIs: Alacritty, tmux and neovim.
