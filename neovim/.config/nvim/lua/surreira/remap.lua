@@ -47,3 +47,6 @@ vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { de
 -- Format keymaps
 vim.keymap.set("n", "<leader>ff", ":Format<CR>", { desc = '[F]ile [F]ormat' })
 vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>", { desc = '[F]ormat and write file' })
+
+-- Block "." in normal mode to prevent repeating the last change
+vim.api.nvim_set_keymap("n", ".", "<Nop>", { noremap = true })
