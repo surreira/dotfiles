@@ -35,6 +35,12 @@ local plugins = {
     -- "gc" to comment visual regions/lines
     'tpope/vim-commentary',
 
+    -- VimBeGood
+    {
+        'ThePrimeagen/vim-be-good',
+        cmd = 'VimBeGood',
+    },
+
     -- LSP related plugins
     {
         'neovim/nvim-lspconfig',
