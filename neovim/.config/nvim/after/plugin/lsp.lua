@@ -21,7 +21,7 @@ local servers = {
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   pyright = { filetypes = { 'python' } },
-
+  intelephense = { filetypes = { 'php', 'blade' } },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
