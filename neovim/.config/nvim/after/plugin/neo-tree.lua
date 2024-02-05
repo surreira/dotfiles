@@ -6,12 +6,11 @@ require("neo-tree").setup {
 			hide_dotfiles = false,
 			hide_gitignored = false,
 			hide_by_name = {
-				".DS_Store",
 				"thumbs.db",
 				"node_modules",
-				"build",
 			},
 			never_show = {
+				".DS_Store",
 				".git",
 			},
 		},
