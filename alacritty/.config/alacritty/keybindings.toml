@@ -35,9 +35,9 @@ bindings = [
 # Toggle tmux zoom state of the current pane (Prefix + z)
 { key = "Z", mods = "Command", chars = "\u0001\u007a" },
 # Split the current tmux pane into two, top and bottom (Prefix + ")
-{ key = "N", mods = "Command", chars = "\u0001\u0022" },
+{ key = "N", mods = "Command", chars = "\u0001\u0025" },
 # Split the current tmux pane into two, left and right (Prefix + %)
-{ key = "N", mods = "Command | Shift", chars = "\u0001\u0025" },
+{ key = "N", mods = "Command | Shift", chars = "\u0001\u0022" },
 # Open lazygit (Prefix + g)
 { key = "G", mods = "Command", chars = "\u0001\u0067" },
 # Open lazydocker (Prefix + b)
