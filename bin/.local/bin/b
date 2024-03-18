@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 TITLE=$(figlet -k -f big "Brew")
 figlet -k -f big "Brew"
@@ -11,16 +11,25 @@ OUTDATED=$(brew outdated)
 
 if [[ -n "$OUTDATED" ]]; then
     echo $OUTDATED
-    read -p "[3] Update all outdated packages? y/[n] " -n 1 -r
-    case "$REPLY" in
-        [Yy]) echo
-            brew upgrade
-            brew cleanup --prune=all
-        ;;
-        *) echo
-            echo "No update will be made."
-        ;;
-    esac
+    while true; do
+        printf "[3] Update all outdated packages? y/[n] "
+        read -k 1 REPLY;
+        echo
+        case "$REPLY" in
+            [Yy])
+                brew upgrade
+                brew cleanup --prune=all
+                break
+            ;;
+            [Nn] | "")
+                echo "No update will be made."
+                break
+            ;;
+            *)
+                echo "Invalid option. Please enter 'y' or 'n'."
+            ;;
+        esac
+    done
 else
     echo "[3] All brew packages are up to date."
 fi
