@@ -1,8 +1,8 @@
 export LANG=en_US.UTF-8
 
 # Terminal History
-export HISTSIZE=50000
-export SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=10000
 setopt append_history        # append
 setopt hist_ignore_all_dups  # no duplicate
 unsetopt hist_ignore_space   # ignore space prefixed commands
