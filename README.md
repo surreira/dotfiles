@@ -9,6 +9,11 @@ Hey there! This is my personal collection of macOS and Linux dotfiles that I use
 - [Alacritty](https://github.com/alacritty/alacritty) and [tmux](https://github.com/tmux/tmux/);
 - Window management and keyboard customizations for [yabai](https://github.com/koekeishiya/yabai) and [skhd](https://github.com/koekeishiya/skhd).
 
+**Prerequisite** I use homebrew to easilly install and update software in macOS. Make sure Homebrew is installed and run:
+```bash
+brew bundle --file=./Brewfile
+```
+
 I use [GNU Stow](https://www.gnu.org/software/stow/) to manage these dotfiles, making it easy to install and manage them on multiple machines. To get started, follow these steps:
 
 1. Clone repository: `git clone https://github.com/surreira/dotfiles.git ~/.dotfiles`
