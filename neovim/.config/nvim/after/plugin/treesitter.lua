@@ -1,7 +1,10 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "python", "astro", "tsx", "css",
-    "comment", "html", "markdown", "markdown_inline", "php", "sql", "gitignore", "git_config", "gitcommit", "dockerfile",
-    "yaml" },
+  ensure_installed = {
+    "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "python",
+    "astro", "tsx", "css", "comment", "html", "markdown", "markdown_inline",
+    "php", "sql", "gitignore", "git_config", "gitcommit", "dockerfile",
+    "yaml", "toml", "bash"
+  },
 
   modules = {},
   auto_install = false,
