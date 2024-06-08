@@ -11,32 +11,39 @@ setopt hist_verify           # show before executing history commands
 setopt inc_append_history    # add commands as they are typed, don't wait until shell exit
 setopt share_history         # share hist between sessions
 
-# zplug
-source $HOME/.zplug/init.zsh
+# Set the Zinit directory
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug 'b4b4r07/zplug-doctor', lazy:yes
-zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-zplug "spaceship-prompt/spaceship-react"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "lib/completion", from:oh-my-zsh
-zplug "lib/directories", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/fnm", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh
-zplug "paulirish/git-open", as:plugin
-zplug "djui/alias-tips"
-
-if ! zplug check; then
-  zplug install
+# Download Zinit
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-zplug load
+# Load Zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Load Zsh plugins with Zinit
+zinit light spaceship-prompt/spaceship-react
+zinit light spaceship-prompt/spaceship-prompt
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+zinit light paulirish/git-open
+zinit light djui/alias-tips
+
+# Add Zinit snippets
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::directories.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::fnm
+zinit snippet OMZP::npm
+zinit snippet OMZP::yarn
+zinit snippet OMZP::docker
+zinit snippet OMZP::docker-compose
+
+zinit cdreplay -q
 
 # Aliases
 source $HOME/.aliases
