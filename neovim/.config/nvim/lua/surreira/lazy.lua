@@ -124,7 +124,6 @@ local plugins = {
     },
 
     -- File formatter
-    { 'mhartington/formatter.nvim' },
 
     -- File explorer
     {
