@@ -29,6 +29,7 @@ alias vi='nvim'
 alias vim='nvim'
 
 # OTHER
+alias ls='ls --color'
 alias ta='tmux a'
 alias tls='tmux ls'
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/'

@@ -47,7 +47,18 @@ zinit snippet OMZP::yarn
 zinit snippet OMZP::docker
 zinit snippet OMZP::docker-compose
 
+# Load completions
+autoload -U compinit && compinit
+
 zinit cdreplay -q
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' popup-min-size 80 30
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color=always $realpath'
 
 # Aliases
 source $HOME/.aliases
