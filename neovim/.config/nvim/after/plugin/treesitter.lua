@@ -7,7 +7,7 @@ require('nvim-treesitter.configs').setup {
   },
 
   modules = {},
-  auto_install = false,
+  auto_install = true,
   sync_install = false,
   ignore_install = {},
 
