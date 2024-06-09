@@ -3,6 +3,8 @@ PATH=$PATH:$HOME/.local/bin
 # Keybindings
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey '^[^?' backward-kill-word
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 
 # Exports
 export EDITOR='nvim'
