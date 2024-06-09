@@ -50,3 +50,12 @@ vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>", { desc = '[F]ormat and writ
 
 -- Block "." in normal mode to prevent repeating the last change
 vim.api.nvim_set_keymap("n", ".", "<Nop>", { noremap = true })
+
+-- Clear search highlight (vim.opt.hlsearch) with <Esc>
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Easier window switch
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
