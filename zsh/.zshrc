@@ -1,4 +1,6 @@
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 # Terminal History
 HISTSIZE=50000
@@ -50,5 +52,6 @@ zinit cdreplay -q
 # Aliases
 source $HOME/.aliases
 
-# fnm
-eval "$(fnm env --use-on-cd)"
+# Shell integrations
+source <(fzf --zsh)
+source <(fnm env --use-on-cd)
