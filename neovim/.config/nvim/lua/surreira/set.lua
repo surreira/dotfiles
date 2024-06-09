@@ -1,4 +1,6 @@
-vim.opt.nu = true
+vim.g.have_nerd_font = true
+
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -15,15 +17,15 @@ vim.opt.colorcolumn = '80'
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-vim.o.clipboard = 'unnamedplus'
-vim.o.mouse = 'a'
-vim.o.termguicolors = true
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
-vim.o.breakindent = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.undofile = true
-
-vim.wo.signcolumn = 'yes'
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.mouse = 'a'
+vim.opt.termguicolors = true
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+vim.opt.breakindent = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.undofile = true
+vim.opt.showmode = false
+vim.opt.signcolumn = 'yes'
+vim.opt.cursorline = true
