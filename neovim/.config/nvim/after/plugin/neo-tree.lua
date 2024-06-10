@@ -21,10 +21,3 @@ require("neo-tree").setup {
 		position = "right",
 	},
 }
-
-vim.keymap.set("n", "<leader>fe", function()
-	require("neo-tree.command").execute({ dir = vim.loop.cwd() })
-end, { desc = "Open the [F]ile [E]xplorer" })
-vim.keymap.set("n", "<leader>tfe", function()
-	require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-end, { desc = "[T]oggle [F]ile [E]xplorer" })
