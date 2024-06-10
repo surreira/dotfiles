@@ -1,4 +1,6 @@
 require("neo-tree").setup {
+	hide_root_node = true,
+	retain_hidden_root_indent = true,
 	filesystem = {
 		filtered_items = {
 			visible = true,
@@ -19,5 +21,13 @@ require("neo-tree").setup {
 	},
 	window = {
 		position = "right",
+	},
+	event_handlers = {
+		{
+			event = "file_opened",
+			handler = function()
+				require("neo-tree.command").execute({ action = "close" })
+			end
+		},
 	},
 }
