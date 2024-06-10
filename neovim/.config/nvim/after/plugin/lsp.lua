@@ -7,7 +7,11 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>f", vim.lsp.buf.format, "[F]ormat current buffer with LSP")
+  nmap(
+    "<leader>f",
+    function() require('conform').format { async = true, lsp_fallback = true } end,
+    "[f] format current buffer"
+  )
   nmap("<leader>vrn", vim.lsp.buf.rename, "[R]e[n]ame")
   nmap("<leader>vca", vim.lsp.buf.code_action, "[C]ode [A]ction")
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
