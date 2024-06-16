@@ -4,3 +4,4 @@ tmux/**/plugins
 lazy-lock.json
 *.zwc
 *.log
+Brewfile.lock.json
