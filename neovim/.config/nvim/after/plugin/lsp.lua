@@ -8,9 +8,9 @@ local on_attach = function(_, bufnr)
   end
 
   nmap(
-    "<leader>f",
+    "<leader>F",
     function() require('conform').format { async = true, lsp_fallback = true } end,
-    "[f] format current buffer"
+    "[F] format current buffer"
   )
   nmap("<leader>vrn", vim.lsp.buf.rename, "[R]e[n]ame")
   nmap("<leader>vca", vim.lsp.buf.code_action, "[C]ode [A]ction")
