@@ -23,12 +23,25 @@ end
 
 local servers = {
   tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  html = { filetypes = { 'html', 'twig', 'hbs', 'blade' } },
   pyright = { filetypes = { 'python' } },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+    },
+  },
+  tailwindcss = {},
+  eslint = {},
+  astro = { filetypes = { 'astro' } },
+  emmet_ls = {
+    filetypes = {
+      'astro',
+      'blade',
+      'html',
+      'htmldjango',
+      'javascriptreact',
+      'typescriptreact',
     },
   },
 }
