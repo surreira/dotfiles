@@ -63,3 +63,9 @@ vim.keymap.set(
   function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
   { desc = "Open the [F]ile [E]xplorer" }
 )
+
+-- Resize split buffers
+vim.keymap.set("n", "<leader>+", "<cmd>resize +5<CR>")
+vim.keymap.set("n", "<leader>-", "<cmd>resize -5<CR>")
+vim.keymap.set("n", "<leader>º", "<cmd>vert res +5<CR>")
+vim.keymap.set("n", "<leader>ª", "<cmd>vert res -5<CR>")
