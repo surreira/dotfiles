@@ -5,6 +5,8 @@ vim.opt.listchars:append "eol:¬" -- or "⏎"
 require("ibl").setup {
 	indent = {
 		char = '┊',
+		tab_char = '│',
+		smart_indent_cap = true,
 	},
 	whitespace = {
 		highlight = {
