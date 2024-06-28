@@ -3,7 +3,7 @@ require('nvim-treesitter.configs').setup {
     "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "python",
     "astro", "tsx", "css", "comment", "html", "markdown", "markdown_inline",
     "php", "sql", "gitignore", "git_config", "gitcommit", "dockerfile",
-    "yaml", "toml", "bash"
+    "json", "yaml", "toml", "bash"
   },
 
   modules = {},
