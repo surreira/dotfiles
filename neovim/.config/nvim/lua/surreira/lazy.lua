@@ -92,17 +92,7 @@ local plugins = {
     },
 
     -- Lualine as statusline
-    {
-        'nvim-lualine/lualine.nvim',
-        opts = {
-            options = {
-                icons_enabled = false,
-                theme = 'tokyonight',
-                component_separators = '|',
-                section_separators = '',
-            },
-        },
-    },
+    { 'nvim-lualine/lualine.nvim' },
 
     -- Indentation guides
     { 'lukas-reineke/indent-blankline.nvim', main = "ibl" },
