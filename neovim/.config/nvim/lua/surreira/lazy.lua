@@ -84,7 +84,13 @@ local plugins = {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
-        opts = {},
+        opts = {
+            light_style = "day",
+            styles = {
+                sidebars = "normal",
+                floats = "normal",
+            },
+        },
         config = function()
             vim.cmd.colorscheme 'tokyonight-storm'
             changeBackground()
