@@ -22,7 +22,7 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-  tsserver = {},
+  ts_ls = {},
   html = { filetypes = { 'html', 'twig', 'hbs', 'blade' } },
   pyright = { filetypes = { 'python' } },
   lua_ls = {
