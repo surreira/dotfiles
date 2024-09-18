@@ -5,7 +5,10 @@ require("conform").setup({
 	},
 	formatters_by_ft = {
 		python = { "isort", "black" },
-		lua = { 'stylua' },
-		javascript = { { "prettierd", "prettier" } },
+		lua = { "stylua" },
+		javascript = { "prettier" },
+		css = { "prettier" },
+		html = { "prettier" },
+		blade = { "blade-formatter" },
 	},
 })
