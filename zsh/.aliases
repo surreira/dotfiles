@@ -9,8 +9,8 @@ alias gcp='echo No 🚫;'
 alias gco='git checkout'
 
 # DOCKER
-alias dcu='docker-compose up -d'
-alias dcd='docker-compose down'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
 alias dpa='docker ps -a'
 
 # CLI-IMPROVED
