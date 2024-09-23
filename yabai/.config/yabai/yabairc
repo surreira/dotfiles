@@ -32,3 +32,4 @@ yabai -m rule --add app="1Password" manage=off
 yabai -m rule --add app="^Camo Studio$" manage=off
 yabai -m rule --add app="^CleanMyMac X$" manage=off
 yabai -m rule --add app="Raycast" manage=off
+yabai -m rule --add app='^GIMP' title!='(^GNU|GIMP$)' manage=off
