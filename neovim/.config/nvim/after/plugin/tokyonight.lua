@@ -4,24 +4,23 @@ local function changeBackground()
 	m = m:gsub("%s+", "")
 	if m == "Dark" then
 		vim.o.background = "dark"
-	else
-		vim.o.background = "light"
 	end
 end
 
-vim.cmd.colorscheme("tokyonight-storm")
-changeBackground()
-
 require("tokyonight").setup({
-	light_style = "day",
+	transparent = false,
 	styles = {
 		sidebars = "normal",
-		floats = "normal",
 	},
+	on_colors = function(colors)
+		colors.bg_statusline = colors.bg_dark
+	end,
 	on_highlights = function(highlights, colors)
 		highlights.ColorColumn = {
 			bg = colors.bg_statusline,
 		}
 	end,
-	on_colors = function() end,
 })
+
+vim.cmd.colorscheme("tokyonight-storm")
+changeBackground()
