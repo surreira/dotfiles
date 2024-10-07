@@ -1,14 +1,14 @@
-require("lualine").setup {
+require("lualine").setup({
 	options = {
 		icons_enabled = false,
-		theme = 'auto',
-		component_separators = '|',
-		section_separators = '',
+		theme = "auto",
+		component_separators = "|",
+		section_separators = "",
 	},
 	sections = {
 		lualine_c = {
 			{
-				'filename',
+				"filename",
 				file_status = true,
 				path = 1,
 				newfile_status = true,
@@ -16,4 +16,4 @@ require("lualine").setup {
 			},
 		},
 	},
-}
+})

@@ -1,4 +1,4 @@
-require("neo-tree").setup {
+require("neo-tree").setup({
 	hide_root_node = true,
 	retain_hidden_root_indent = true,
 	filesystem = {
@@ -27,7 +27,7 @@ require("neo-tree").setup {
 			event = "file_opened",
 			handler = function()
 				require("neo-tree.command").execute({ action = "close" })
-			end
+			end,
 		},
 	},
-}
+})

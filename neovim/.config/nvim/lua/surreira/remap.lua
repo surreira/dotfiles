@@ -6,13 +6,13 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- Move visual selection
@@ -27,21 +27,21 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Buffer scroll [U]p" })
 vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>/", function()
-  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sw", function()
-  require("telescope.builtin").grep_string({ search = vim.fn.input("Search Word > ") })
+	require("telescope.builtin").grep_string({ search = vim.fn.input("Search Word > ") })
 end, { desc = "[S]earch [W]ord in workspace" })
 
 -- Diagnostics keymaps
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = 'Open diagnostic message' })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic message" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 -- Block "." in normal mode to prevent repeating the last change
@@ -57,12 +57,9 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- File tree keymaps
-vim.keymap.set(
-  "n",
-  "<leader>fe",
-  function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
-  { desc = "Open the [F]ile [E]xplorer" }
-)
+vim.keymap.set("n", "<leader>fe", function()
+	require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+end, { desc = "Open the [F]ile [E]xplorer" })
 
 -- Resize split buffers
 vim.keymap.set("n", "<leader>+", "<cmd>resize +5<CR>")

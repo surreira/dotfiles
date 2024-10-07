@@ -1,18 +1,18 @@
 vim.opt.list = true
-vim.opt.listchars:append "space:·"
-vim.opt.listchars:append "eol:¬" -- or "⏎"
+vim.opt.listchars:append("space:·")
+vim.opt.listchars:append("eol:¬") -- or "⏎"
 
-require("ibl").setup {
+require("ibl").setup({
 	indent = {
-		char = '┊',
-		tab_char = '│',
+		char = "┊",
+		tab_char = "│",
 		smart_indent_cap = true,
 	},
 	whitespace = {
 		highlight = {
 			"Whitespace",
-			"NonText"
+			"NonText",
 		},
-		remove_blankline_trail = false
+		remove_blankline_trail = false,
 	},
-}
+})

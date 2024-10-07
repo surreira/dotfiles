@@ -1,10 +1,10 @@
-require("gitsigns").setup {
+require("gitsigns").setup({
 	signs = {
-		add = { text = '+' },
-		change = { text = '~' },
-		delete = { text = '_' },
-		topdelete = { text = '‾' },
-		changedelete = { text = '~' },
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
 	},
 	on_attach = function(bufnr)
 		local gs = package.loaded.gitsigns
@@ -21,5 +21,5 @@ require("gitsigns").setup {
 
 		-- Actions
 		map("n", "<leader>ph", gs.preview_hunk, { desc = "[P]review [H]unk" })
-	end
-}
+	end,
+})
