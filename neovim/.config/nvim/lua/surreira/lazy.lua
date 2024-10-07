@@ -18,17 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Changes the background mode based on macOS's appearance setting.
-local function changeBackground()
-	local m = vim.fn.system("defaults read -g AppleInterfaceStyle")
-	m = m:gsub("%s+", "")
-	if m == "Dark" then
-		vim.o.background = "dark"
-	else
-		vim.o.background = "light"
-	end
-end
-
 local plugins = {
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
@@ -84,17 +73,7 @@ local plugins = {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			light_style = "day",
-			styles = {
-				sidebars = "normal",
-				floats = "normal",
-			},
-		},
-		config = function()
-			vim.cmd.colorscheme("tokyonight-storm")
-			changeBackground()
-		end,
+		opts = {},
 	},
 
 	-- Lualine as statusline
