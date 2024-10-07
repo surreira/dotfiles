@@ -2,21 +2,20 @@
 
 -- Install lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Set <space> as the leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 local plugins = {
 	-- Detect tabstop and shiftwidth automatically
@@ -63,7 +62,7 @@ local plugins = {
 	},
 
 	-- Show pending keybinds
-	{ "folke/which-key.nvim", opts = {} },
+	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },
 
 	-- Git related signs in the gutter
 	{ "lewis6991/gitsigns.nvim", opts = {} },
@@ -85,7 +84,7 @@ local plugins = {
 	-- Fuzzy finder
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -111,7 +110,7 @@ local plugins = {
 	-- File formatter
 	{
 		"stevearc/conform.nvim",
-		lazy = false,
+		opts = {},
 	},
 
 	-- File explorer
@@ -120,7 +119,7 @@ local plugins = {
 		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 	},
