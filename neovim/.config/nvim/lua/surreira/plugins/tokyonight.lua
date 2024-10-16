@@ -7,13 +7,15 @@ local function changeBackground()
 	end
 end
 
-vim.cmd.colorscheme("tokyonight-storm")
 changeBackground()
 
 return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
+	init = function()
+		vim.cmd.colorscheme("tokyonight-storm")
+	end,
 	opts = {
 		transparent = false,
 		styles = {
