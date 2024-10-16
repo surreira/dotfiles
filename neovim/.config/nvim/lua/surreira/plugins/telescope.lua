@@ -1,6 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.x",
+	event = "VimEnter",
+	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -10,6 +11,7 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
+		{ "nvim-telescope/telescope-ui-select.nvim" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -26,5 +28,6 @@ return {
 		})
 
 		pcall(telescope.load_extension, "fzf")
+		pcall(telescope.load_extension, "ui-select")
 	end,
 }
