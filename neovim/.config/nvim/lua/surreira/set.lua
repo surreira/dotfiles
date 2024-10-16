@@ -31,3 +31,7 @@ vim.opt.undofile = true
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+
+vim.opt.list = true
+vim.opt.listchars:append("space:·")
+vim.opt.listchars:append("eol:¬") -- or "⏎"
