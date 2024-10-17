@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim", config = true },
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 	},
@@ -26,53 +27,87 @@ return {
 		end
 
 		local servers = {
-			ts_ls = {},
-			html = { filetypes = { "html", "twig", "hbs", "blade" } },
-			pyright = { filetypes = { "python" } },
-			lua_ls = {
-				Lua = {
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
-				},
-			},
-			tailwindcss = {},
-			eslint = {},
 			astro = { filetypes = { "astro" } },
+			cssls = { filetypes = { "html", "twig", "hbs", "blade" } },
+			docker_compose_language_service = { filetypes = { "yaml" } },
+			dockerls = {},
 			emmet_ls = {
 				filetypes = {
 					"astro",
 					"blade",
+					"css",
 					"html",
 					"htmldjango",
+					"javascript",
 					"javascriptreact",
+					"typescript",
 					"typescriptreact",
 				},
 			},
+			eslint = {
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+				},
+			},
+			html = { filetypes = { "html", "twig", "hbs", "blade" } },
+			jsonls = {
+				filetypes = {
+					"json",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+				},
+			},
+			lua_ls = {
+				Lua = {
+					completion = {
+						callSnippet = "Replace",
+					},
+					workspace = { checkThirdParty = false },
+					telemetry = { enable = false },
+				},
+			},
+			pyright = { filetypes = { "python" } },
+			tailwindcss = {},
+			ts_ls = { filetypes = { "typescript", "typescriptreact" } },
 		}
 
-		-- Setup neovim lua configuration
-		require("lazydev").setup()
+		require("mason").setup()
+
+		local ensure_installed = vim.tbl_keys(servers or {})
+		vim.list_extend(ensure_installed, {
+			"black",
+			"blade-formatter",
+			"cspell",
+			"flake8",
+			"isort",
+			"prettier",
+			"stylua",
+		})
+
+		require("mason-tool-installer").setup({
+			ensure_installed = ensure_installed,
+		})
 
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-		-- Ensure the servers above are installed
-		local mason_lspconfig = require("mason-lspconfig")
-
-		mason_lspconfig.setup({
-			ensure_installed = vim.tbl_keys(servers),
-		})
-
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				require("lspconfig")[server_name].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = servers[server_name],
-					filetypes = (servers[server_name] or {}).filetypes,
-				})
-			end,
+		require("mason-lspconfig").setup({
+			handlers = {
+				function(server_name)
+					require("lspconfig")[server_name].setup({
+						capabilities = capabilities,
+						on_attach = on_attach,
+						settings = servers[server_name],
+						filetypes = (servers[server_name] or {}).filetypes,
+					})
+				end,
+			},
 		})
 	end,
 }
