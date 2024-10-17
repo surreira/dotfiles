@@ -4,21 +4,29 @@ return {
 	config = function()
 		local lint = require("lint")
 
-		lint.linters_by_ft = {
-			["*"] = { "cspell" },
+		local cspell = lint.linters.cspell
+		cspell.args = {
+			"lint",
+			"--config",
+			vim.fn.expand("$HOME/.config/cspell/cspell.json"),
 		}
 
-		local lint_autogroup = vim.api.nvim_create_augroup("lint", { clear = true })
+		lint.linters_by_ft = {
+			blade = { "cspell" },
+			html = { "cspell" },
+			javascript = { "cspell" },
+			javascriptreact = { "cspell" },
+			markdown = { "cspell" },
+			php = { "cspell" },
+			python = { "cspell" },
+			typescript = { "cspell" },
+			typescriptreact = { "cspell" },
+		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			group = lint_autogroup,
 			callback = function()
 				lint.try_lint()
 			end,
 		})
-
-		vim.keymap.set("n", "<leader>l", function()
-			lint.try_lint()
-		end, { desc = "[L]int current file" })
 	end,
 }
