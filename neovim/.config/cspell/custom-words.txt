@@ -1,2 +1,4 @@
 surreira
 nvim
+astro
+astrojs
