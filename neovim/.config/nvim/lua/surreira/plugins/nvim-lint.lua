@@ -12,13 +12,16 @@ return {
 		}
 
 		lint.linters_by_ft = {
+			astro = { "cspell" },
 			blade = { "cspell" },
 			html = { "cspell" },
 			javascript = { "cspell" },
 			javascriptreact = { "cspell" },
+			json = { "cspell" },
 			markdown = { "cspell" },
 			php = { "cspell" },
 			python = { "cspell" },
+			text = { "cspell" },
 			typescript = { "cspell" },
 			typescriptreact = { "cspell" },
 		}
