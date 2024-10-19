@@ -8,6 +8,7 @@ return {
 		},
 		spec = {
 			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>g", group = "[G]it", mode = { "n", "v" } },
 		},
 	},
 }
