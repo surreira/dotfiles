@@ -17,12 +17,23 @@ return {
 		local telescope = require("telescope")
 		telescope.setup({
 			defaults = {
+				layout_strategy = "flex",
+				layout_config = {
+					vertical = { width = 0.66, height = 0.9 },
+					horizontal = { width = 0.9, height = 0.66 },
+				},
 				path_display = { "smart" },
 				mappings = {
 					i = {
 						["<C-u>"] = false,
 						["<C-d>"] = false,
 					},
+				},
+				file_ignore_patterns = {
+					"venv",
+					".git/",
+					"dist",
+					"build",
 				},
 			},
 			extensions = {
