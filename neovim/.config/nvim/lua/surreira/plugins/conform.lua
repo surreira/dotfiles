@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufWritePre" },
 	config = function()
 		local conform = require("conform")
 
@@ -11,12 +11,14 @@ return {
 				lsp_fallback = true,
 			},
 			formatters_by_ft = {
-				python = { "isort", "black" },
-				lua = { "stylua" },
-				javascript = { "prettier" },
+				astro = { "prettier" },
+				blade = { "blade-formatter" },
 				css = { "prettier" },
 				html = { "prettier" },
-				blade = { "blade-formatter" },
+				javascript = { "prettier" },
+				lua = { "stylua" },
+				python = { "isort", "black" },
+				typescript = { "prettier" },
 			},
 		})
 
