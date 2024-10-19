@@ -8,23 +8,42 @@ return {
 		{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 	},
 	config = function()
-		local on_attach = function(_, bufnr)
-			local nmap = function(keys, func, desc)
-				if desc then
-					desc = "LSP: " .. desc
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("user-lsp-attach", { clear = true }),
+			callback = function(event)
+				local nmap = function(keys, func, desc, mode)
+					mode = mode or "n"
+					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-			end
+				local builtin = require("telescope.builtin")
 
-			nmap("<leader>vrn", vim.lsp.buf.rename, "[R]e[n]ame")
-			nmap("<leader>vca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-			nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-			nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-			nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-			nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-			nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-		end
+				-- Rename the variable under the cursor
+				nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+				-- Execute a code action, usually your cursor needs to be on top of an error
+				-- or a suggestion from your LSP for this to activate.
+				nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+
+				-- Jump to the definition of the word under your cursor. (similar to vim.lsp.buf.definition)
+				--  This is where a variable was first declared, or where a function is defined, etc.
+				--  To jump back, press <C-t>.
+				nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
+
+				-- Find references for the word under your cursor
+				nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
+
+				-- Jump to the type of the word under your cursor. (similar to vim.lsp.buf.type_definition)
+				--  Useful when you're not sure what type a variable is and you want to see
+				--  the definition of its *type*, not where it was *defined*.
+				nmap("<leader>D", builtin.lsp_type_definitions, "Type [D]efinition")
+
+				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+			end,
+		})
+
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 		local servers = {
 			astro = { filetypes = { "astro" } },
@@ -63,12 +82,14 @@ return {
 				},
 			},
 			lua_ls = {
-				Lua = {
-					completion = {
-						callSnippet = "Replace",
+				settings = {
+					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
+						workspace = { checkThirdParty = false },
+						telemetry = { enable = false },
 					},
-					workspace = { checkThirdParty = false },
-					telemetry = { enable = false },
 				},
 			},
 			pyright = { filetypes = { "python" } },
@@ -93,19 +114,12 @@ return {
 			ensure_installed = ensure_installed,
 		})
 
-		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-						on_attach = on_attach,
-						settings = servers[server_name],
-						filetypes = (servers[server_name] or {}).filetypes,
-					})
+					local server = servers[server_name] or {}
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+					require("lspconfig")[server_name].setup(server)
 				end,
 			},
 		})
