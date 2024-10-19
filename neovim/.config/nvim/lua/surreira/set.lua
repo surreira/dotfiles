@@ -14,7 +14,7 @@ vim.opt.backup = false
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "80"
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
@@ -31,7 +31,10 @@ vim.opt.undofile = true
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 vim.opt.list = true
 vim.opt.listchars:append("space:·")
 vim.opt.listchars:append("eol:¬") -- or "⏎"
+vim.opt.listchars:append("nbsp:␣")
