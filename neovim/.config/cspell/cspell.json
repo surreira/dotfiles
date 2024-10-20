@@ -17,4 +17,7 @@
         "custom-words",
         "blade"
     ],
+    "import": [
+        "@cspell/dict-pt-pt/cspell-ext.json"
+    ],
 }
