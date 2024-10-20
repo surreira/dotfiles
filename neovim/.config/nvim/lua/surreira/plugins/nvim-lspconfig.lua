@@ -72,15 +72,7 @@ return {
 				},
 			},
 			html = { filetypes = { "html", "twig", "hbs", "blade" } },
-			jsonls = {
-				filetypes = {
-					"json",
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-				},
-			},
+			jsonls = { filetypes = { "json" } },
 			lua_ls = {
 				settings = {
 					Lua = {
