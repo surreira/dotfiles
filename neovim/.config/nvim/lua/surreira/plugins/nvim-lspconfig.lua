@@ -47,6 +47,7 @@ return {
 
 		local servers = {
 			astro = { filetypes = { "astro" } },
+			bashls = {},
 			cssls = { filetypes = { "html", "twig", "hbs", "blade" } },
 			docker_compose_language_service = { filetypes = { "yaml" } },
 			dockerls = {},
@@ -99,6 +100,8 @@ return {
 			"flake8",
 			"isort",
 			"prettier",
+			"shfmt",
+			"shellcheck",
 			"stylua",
 		})
 

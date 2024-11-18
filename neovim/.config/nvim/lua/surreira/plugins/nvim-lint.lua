@@ -13,6 +13,7 @@ return {
 
 		lint.linters_by_ft = {
 			astro = { "cspell" },
+			bash = { "shellcheck", "cspell" },
 			blade = { "cspell" },
 			html = { "cspell" },
 			javascript = { "cspell" },
@@ -21,9 +22,11 @@ return {
 			markdown = { "cspell" },
 			php = { "cspell" },
 			python = { "cspell" },
+			sh = { "shellcheck", "cspell" },
 			text = { "cspell" },
 			typescript = { "cspell" },
 			typescriptreact = { "cspell" },
+			zsh = { "shellcheck", "cspell" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

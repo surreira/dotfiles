@@ -13,13 +13,21 @@ return {
 			},
 			formatters_by_ft = {
 				astro = { "prettier" },
+				bash = { "shfmt" },
 				blade = { "blade-formatter" },
 				css = { "prettier" },
 				html = { "prettier" },
 				javascript = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				sh = { "shfmt" },
 				typescript = { "prettier" },
+				zsh = { "shfmt" },
+			},
+			formatters = {
+				shfmt = {
+					prepend_args = { "-i", "2", "-ci" },
+				},
 			},
 		})
 
