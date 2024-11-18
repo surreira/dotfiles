@@ -31,8 +31,6 @@ neovim_theme() {
 
 # change tmux color scheme
 tmux_theme() {
-    /opt/homebrew/bin/tmux set -g @tokyonight_auto 0
-
     case "$1" in
         light)
             /opt/homebrew/bin/tmux set -g @tokyonight_theme 'day'
@@ -69,7 +67,7 @@ alacritty_theme() {
     fi
 
     # little hack to force reload alacritty configuration of colors file
-    echo "" >> $CONFIG_FILE
+    echo "" >>$CONFIG_FILE
     sed -i '' -e '$d' $CONFIG_FILE
 }
 
