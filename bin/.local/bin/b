@@ -1,7 +1,13 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-TITLE=$(figlet -k -f big "Brew")
-figlet -k -f big "Brew"
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Error: Homebrew is not installed" >&2
+    exit 127
+fi
+
+if command -v figlet >/dev/null 2>&1; then
+    figlet -k -f big "Brew"
+fi
 
 echo "[1] Updating brew..."
 brew update
@@ -10,24 +16,23 @@ echo "[2] Checking for outdated brew packages..."
 OUTDATED=$(brew outdated)
 
 if [[ -n "$OUTDATED" ]]; then
-    echo $OUTDATED
+    echo "$OUTDATED"
     while true; do
-        printf "[3] Update all outdated packages? y/[n] "
-        read -k 1 REPLY;
+        read -p "[3] Update all outdated packages? (y/[n]): " -n 1 -r REPLY
         echo
         case "$REPLY" in
             [Yy])
                 brew upgrade
                 brew cleanup --prune=all
                 break
-            ;;
+                ;;
             [Nn] | "")
                 echo "No update will be made."
                 break
-            ;;
+                ;;
             *)
                 echo "Invalid option. Please enter 'y' or 'n'."
-            ;;
+                ;;
         esac
     done
 else
@@ -36,3 +41,4 @@ fi
 
 echo "[4] Checking for brew issues..."
 brew doctor
+exit 0
