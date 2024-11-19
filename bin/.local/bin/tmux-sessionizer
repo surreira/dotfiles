@@ -3,11 +3,37 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    declare -a DEVELOPER=( $(find ~/Developer -mindepth 1 -maxdepth 1 -type d) )
-    declare -a PROJECTS=( $(find ~/Projects -mindepth 2 -maxdepth 2 -type d) )
-    declare -a SANDBOX=( $(find ~/Developer/SANDBOX -mindepth 1 -maxdepth 1 -type d) )
-    FOLDERS=( "${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}" )
+    DEVELOPER_DIR="$HOME/Developer"
+    if [ ! -d "$DEVELOPER_DIR" ]; then
+        exit 1
+    fi
 
+    DEVELOPER=()
+    while IFS='' read -r line; do
+        DEVELOPER+=("$line")
+    done < <(find "$DEVELOPER_DIR" -mindepth 1 -maxdepth 1 -type d)
+
+    SANDBOX_DIR="$HOME/Developer/SANDBOX"
+    if [ ! -d "$SANDBOX_DIR" ]; then
+        exit 1
+    fi
+
+    SANDBOX=()
+    while IFS='' read -r line; do
+        SANDBOX+=("$line")
+    done < <(find "$SANDBOX_DIR" -mindepth 1 -maxdepth 1 -type d)
+
+    PROJECTS_DIR="$HOME/Projects"
+    if [ ! -d "$PROJECTS_DIR" ]; then
+        exit 1
+    fi
+
+    PROJECTS=()
+    while IFS='' read -r line; do
+        PROJECTS+=("$line")
+    done < <(find "$PROJECTS_DIR" -mindepth 2 -maxdepth 2 -type d)
+
+    FOLDERS=("${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}")
     selected=$(printf "%s\n" "${FOLDERS[@]}" | fzf)
 fi
 
@@ -19,13 +45,13 @@ selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s "$selected_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-tmux attach-session -t $selected_name
-tmux switch-client -t $selected_name
+tmux attach-session -t "$selected_name"
+tmux switch-client -t "$selected_name"
