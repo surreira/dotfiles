@@ -26,7 +26,7 @@ return {
 			text = { "cspell" },
 			typescript = { "cspell" },
 			typescriptreact = { "cspell" },
-			zsh = { "shellcheck", "cspell" },
+			zsh = { "cspell" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
