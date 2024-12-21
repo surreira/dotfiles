@@ -97,6 +97,7 @@ return {
 			"black",
 			"blade-formatter",
 			"cspell",
+			"djlint",
 			"flake8",
 			"isort",
 			"prettier",
