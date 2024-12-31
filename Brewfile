@@ -41,6 +41,7 @@ cask "cleanmymac", desc: "Tool to remove unnecessary files and folders from disk
 cask "docker", desc: "App to build and share containerised applications and microservices"
 cask "font-fira-code-nerd-font", desc: "Developer targeted fonts with a high number of glyphs"
 cask "font-jetbrains-mono-nerd-font", desc: "Developer targeted fonts with a high number of glyphs"
+cask "ghostty", desc: "Terminal emulator that uses platform-native UI and GPU acceleration"
 cask "gimp", desc: "GNU Image Manipulation Program"
 cask "hiddenbar", desc: "Utility to hide menu bar items"
 cask "insomnia", desc: "HTTP and GraphQL Client"
