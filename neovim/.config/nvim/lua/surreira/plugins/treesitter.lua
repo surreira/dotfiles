@@ -20,6 +20,7 @@ return {
 				"gitignore",
 				"git_config",
 				"html",
+				"htmldjango",
 				"javascript",
 				"json",
 				"lua",

@@ -17,7 +17,7 @@ return {
 				blade = { "blade-formatter" },
 				css = { "prettier" },
 				html = { "prettier" },
-				htmldjango = { "djlint" },
+				htmldjango = { "prettier" },
 				javascript = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
