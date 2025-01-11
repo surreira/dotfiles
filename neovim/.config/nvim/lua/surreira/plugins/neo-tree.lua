@@ -22,6 +22,7 @@ return {
 					never_show = {
 						".DS_Store",
 						".git",
+						"__pycache__",
 					},
 				},
 				follow_current_file = {
