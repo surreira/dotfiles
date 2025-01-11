@@ -51,19 +51,6 @@ return {
 			cssls = { filetypes = { "html", "twig", "hbs", "blade" } },
 			docker_compose_language_service = { filetypes = { "yaml" } },
 			dockerls = {},
-			emmet_ls = {
-				filetypes = {
-					"astro",
-					"blade",
-					"css",
-					"html",
-					"htmldjango",
-					"javascript",
-					"javascriptreact",
-					"typescript",
-					"typescriptreact",
-				},
-			},
 			eslint = {
 				filetypes = {
 					"javascript",
