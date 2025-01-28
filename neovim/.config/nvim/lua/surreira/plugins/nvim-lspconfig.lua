@@ -74,7 +74,7 @@ return {
 			},
 			pyright = { filetypes = { "python" } },
 			tailwindcss = {},
-			ts_ls = { filetypes = { "typescript", "typescriptreact" } },
+			ts_ls = { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
 		}
 
 		require("mason").setup()
