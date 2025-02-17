@@ -1,5 +1,10 @@
+####################
+## User Interface ##
+####################
+
 theme = dark:tokyonight-storm,light:tokyonight-day
 
+adjust-cell-height = 1
 adjust-cell-width = -1
 
 font-size = 13.5
@@ -12,3 +17,46 @@ window-padding-y = 16
 window-inherit-font-size = false
 
 macos-titlebar-style = hidden
+
+##################
+## Keybindings ###
+##################
+# Useful encoded characters:
+# \x01 = <C-a> (tmux prefix)
+
+# Switch tmux windows by index (1~9)
+keybind = super+physical:one=text:\x011
+keybind = super+physical:two=text:\x012
+keybind = super+physical:three=text:\x013
+keybind = super+physical:four=text:\x014
+keybind = super+physical:five=text:\x015
+keybind = super+physical:six=text:\x016
+keybind = super+physical:seven=text:\x017
+keybind = super+physical:eight=text:\x018
+keybind = super+physical:nine=text:\x019
+
+# tmux shortcuts
+# prefix+c -> new tmux window
+keybind = super+t=text:\x01\x63
+# prefix+x -> close tmux window
+keybind = super+w=text:\x01\x78
+# prefix+n -> next tmux window
+keybind = ctrl+tab=text:\x01\x6e
+# prefix+p -> previous tmux window
+keybind = ctrl+shift+tab=text:\x01\x70
+# prefix+" -> split tmux pane vertically
+keybind = super+shift+n=text:\x01\x22
+# prefix+% -> split tmux pane horizontally
+keybind = super+n=text:\x01\x25
+# prefix+, -> rename tmux window
+keybind = super+,=text:\x01\x2c
+# prefix+z -> toggle tmux pane zoom
+keybind = super+z=text:\x01\x7a
+# prefix+s -> select tmux session
+keybind = super+k=text:\x01\x73
+# prefix+g -> open lazygit
+keybind = super+g=text:\x01\x67
+# prefix+b -> open lazydocker
+keybind = super+b=text:\x01\x62
+# prefix+f -> open tmux-sessionizer
+keybind = super+f=text:\x01\x66
