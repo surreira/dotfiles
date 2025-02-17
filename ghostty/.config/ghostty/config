@@ -10,7 +10,7 @@ adjust-cell-width = -1
 font-size = 13.5
 font-family = "JetBrainsMono Nerd Font Mono"
 font-thicken = true
-font-thicken-strength = 200
+font-thicken-strength = 225
 
 window-padding-x = 16
 window-padding-y = 16
