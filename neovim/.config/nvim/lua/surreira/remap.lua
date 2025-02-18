@@ -74,3 +74,8 @@ vim.keymap.set("n", "<leader>+", "<cmd>resize +5<CR>", { desc = "Increase vertic
 vim.keymap.set("n", "<leader>-", "<cmd>resize -5<CR>", { desc = "Decrease vertical buffer size" })
 vim.keymap.set("n", "<leader>º", "<cmd>vert res +5<CR>", { desc = "Increase horizontal buffer size" })
 vim.keymap.set("n", "<leader>ª", "<cmd>vert res -5<CR>", { desc = "Decrease horizontal buffer size" })
+
+-- CSpell: add word to spell list
+vim.keymap.set("n", "zg", function()
+	require("surreira.cspell_manager").add_word_to_spell_list()
+end, { noremap = true, silent = true })
