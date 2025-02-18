@@ -8,16 +8,10 @@
             "name": "custom-words",
             "path": "~/.config/cspell/custom-words.txt",
             "addWords": true
-        },
-        {
-            "name": "blade",
-            "path": "~/.config/cspell/blade.txt",
-            "addWords": true
         }
     ],
     "dictionaries": [
-        "custom-words",
-        "blade"
+        "custom-words"
     ],
     "import": [
         "@cspell/dict-pt-pt/cspell-ext.json",

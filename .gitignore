@@ -5,3 +5,4 @@ lazy-lock.json
 *.zwc
 *.log
 Brewfile.lock.json
+custom-words.txt
