@@ -108,5 +108,24 @@ return {
 				end,
 			},
 		})
+
+		-- CSpell command to install/update dictionaries
+		vim.api.nvim_create_user_command("InstallCspellDict", function(opts)
+			local args = opts.args or ""
+			local verbose = string.find(args, "-v") ~= nil
+
+			local cspell_manager = require("surreira.cspell_manager")
+
+			local dictionaries = {
+				"@cspell/dict-pt-pt",
+				"@cspell/dict-bash",
+				"@cspell/dict-lua",
+				"@cspell/dict-vim",
+			}
+
+			for _, dict in ipairs(dictionaries) do
+				cspell_manager.install_cspell_dictionary(dict, verbose)
+			end
+		end, { nargs = "*", desc = "Install CSpell dictionaries, use -v for verbose output" })
 	end,
 }

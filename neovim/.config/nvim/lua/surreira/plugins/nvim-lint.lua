@@ -29,9 +29,10 @@ return {
 			zsh = { "cspell" },
 		}
 
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+			group = vim.api.nvim_create_augroup("RunLinter", { clear = true }),
 			callback = function()
-				lint.try_lint()
+				lint.try_lint("cspell")
 			end,
 		})
 	end,
