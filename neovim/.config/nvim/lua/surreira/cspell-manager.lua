@@ -1,4 +1,4 @@
--- CSpell Manager: install dictionaries
+-- CSpell Manager
 --  * Install CSpell dictionaries
 --  * Add word to spell list
 
@@ -53,7 +53,7 @@ function M.add_word_to_spell_list()
 	local content = list_file_read:read("*a")
 	list_file_read:close()
 	if content:find(word, 1, true) then
-		vim.notify(string.format("The word %s already exists in the dictionary", word), vim.log.levels.INFO)
+		vim.notify(string.format('The word "%s" already exists in the dictionary', word), vim.log.levels.INFO)
 		return
 	end
 
@@ -65,7 +65,7 @@ function M.add_word_to_spell_list()
 
 	list_file_write:write(string.format("%s\n", word))
 	list_file_write:close()
-	vim.notify(string.format("Added word %s to the list", word))
+	vim.notify(string.format('Added word "%s" to the list', word))
 
 	vim.schedule(function()
 		require("lint").try_lint("cspell")

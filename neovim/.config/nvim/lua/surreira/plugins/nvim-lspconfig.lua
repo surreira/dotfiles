@@ -77,14 +77,16 @@ return {
 			ts_ls = { filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
 		}
 
-		require("mason").setup()
+		require("mason").setup({
+			ui = {
+				backdrop = 100,
+			},
+		})
 
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"black",
-			"blade-formatter",
 			"cspell",
-			"djlint",
 			"flake8",
 			"isort",
 			"prettier",
@@ -114,7 +116,7 @@ return {
 			local args = opts.args or ""
 			local verbose = string.find(args, "-v") ~= nil
 
-			local cspell_manager = require("surreira.cspell_manager")
+			local cspell_manager = require("surreira.cspell-manager")
 
 			local dictionaries = {
 				"@cspell/dict-pt-pt",
