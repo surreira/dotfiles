@@ -52,6 +52,7 @@ cask "obsidian", desc: "Knowledge base that works on top of a local folder of pl
 cask "orcaslicer", desc: "G-code generator for 3D printers"
 cask "raycast", desc: "Control your tools with a few keystrokes"
 cask "sourcetree", desc: "Graphical client for Git version control"
+cask "syncthing", desc: "Real time file synchronisation software"
 cask "tableplus", desc: "Native GUI tool for relational databases"
 cask "transmit", desc: "File transfer application"
 cask "vlc", desc: "Multimedia player"
