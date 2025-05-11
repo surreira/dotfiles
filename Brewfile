@@ -1,7 +1,9 @@
 tap "homebrew/bundle"
 tap "koekeishiya/formulae"
+tap "FelixKratz/formulae"
 
 brew "bat", desc: "Clone of cat(1) with syntax highlighting and Git integration"
+brew "borders", desc: "A window border system for macOS"
 brew "bpytop", desc: "Linux/OSX/FreeBSD resource monitor"
 brew "ctop", desc: "Top-like interface for container metrics"
 brew "diff-so-fancy", desc: "Good-lookin' diffs with diff-highlight and more"

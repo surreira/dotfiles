@@ -82,6 +82,14 @@ alacritty_theme() {
     sed -i '' -e '$d' "$config_file"
 }
 
+# change JankyBorders colors
+jankyborders_theme() {
+    /opt/homebrew/bin/brew services restart borders
+}
+
 neovim_theme $THEME
 tmux_theme $THEME
-alacritty_theme $THEME
+jankyborders_theme $THEME
+
+# Using Ghostty terminal emulator now. No need to update alacritty.
+# alacritty_theme $THEME
