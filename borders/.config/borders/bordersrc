@@ -3,7 +3,7 @@
 if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
   options=(
     style=round
-    width=6.0
+    width=8.0
     hidpi=off
     active_color=0xff7aa2f7
     inactive_color=0xff494d64
@@ -11,7 +11,7 @@ if defaults read -g AppleInterfaceStyle >/dev/null 2>&1; then
 else
   options=(
     style=round
-    width=6.0
+    width=8.0
     hidpi=off
     active_color=0xff2f7de9
     inactive_color=0xffe1e3e4
