@@ -42,6 +42,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-k = 'move up'
     alt-shift-l = 'move right'
 
+    alt-shift-0 = 'balance-sizes'
+
     alt-shift-a = 'resize smart -50'
     alt-shift-d = 'resize smart +50'
 
@@ -70,3 +72,43 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder'
+    run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iphonesimulator'
+run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.MobileSMS'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.reminders'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.QuickTimePlayerX'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.weather'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.1password.1password'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.reincubate.macos.cam'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.macpaw.CleanMyMac4'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.raycast.macos'
+    run = 'layout floating'
