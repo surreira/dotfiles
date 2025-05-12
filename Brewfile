@@ -32,6 +32,7 @@ brew "tree", desc: "Display directories as trees (with optional color/HTML outpu
 brew "vegeta", desc: "HTTP load testing tool and library"
 brew "webp", desc: "Image format providing lossless and lossy compression for web images"
 cask "alacritty", desc: "GPU-accelerated terminal emulator"
+cask "autodesk-fusion", desc: "Integrated CAD, CAM, CAE, and PCB software"
 cask "brave-browser", desc: "Web browser focusing on privacy"
 cask "camo-studio", desc: "Use your phone as a high-quality webcam with image tuning controls"
 cask "cleanmymac", desc: "Tool to remove unnecessary files and folders from disk"
