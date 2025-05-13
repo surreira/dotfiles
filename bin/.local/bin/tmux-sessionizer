@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    DEVELOPER_DIR="$HOME/Developer"
+    DEVELOPER_DIR="$HOME/dev/projects"
     if [ ! -d "$DEVELOPER_DIR" ]; then
         exit 1
     fi
@@ -13,7 +13,7 @@ else
         DEVELOPER+=("$line")
     done < <(find "$DEVELOPER_DIR" -mindepth 1 -maxdepth 1 -type d)
 
-    SANDBOX_DIR="$HOME/Developer/SANDBOX"
+    SANDBOX_DIR="$HOME/dev/sandbox"
     if [ ! -d "$SANDBOX_DIR" ]; then
         exit 1
     fi
@@ -23,15 +23,15 @@ else
         SANDBOX+=("$line")
     done < <(find "$SANDBOX_DIR" -mindepth 1 -maxdepth 1 -type d)
 
-    PROJECTS_DIR="$HOME/Projects"
-    if [ ! -d "$PROJECTS_DIR" ]; then
+    WORK_DIR="$HOME/dev/work"
+    if [ ! -d "$WORK_DIR" ]; then
         exit 1
     fi
 
     PROJECTS=()
     while IFS='' read -r line; do
         PROJECTS+=("$line")
-    done < <(find "$PROJECTS_DIR" -mindepth 2 -maxdepth 2 -type d)
+    done < <(find "$WORK_DIR" -mindepth 3 -maxdepth 3 -type d -iname "*.git")
 
     FOLDERS=("${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}")
     selected=$(printf "%s\n" "${FOLDERS[@]}" | fzf)
