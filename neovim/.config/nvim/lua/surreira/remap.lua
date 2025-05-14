@@ -66,7 +66,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- File tree keymaps
 vim.keymap.set("n", "<leader>fe", function()
-	require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+	require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
 end, { desc = "[F]ile [E]xplorer" })
 
 -- Resize split buffers
