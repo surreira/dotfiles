@@ -41,6 +41,13 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 			},
+			pickers = {
+				live_grep = {
+					additional_args = function()
+						return { "--hidden" }
+					end,
+				},
+			},
 		})
 
 		pcall(telescope.load_extension, "fzf")
