@@ -78,8 +78,8 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.iphonesimulator'
-run = 'layout floating'
+    if.app-id = 'com.apple.iphonesimulator'
+    run = 'layout floating'
 
 [[on-window-detected]]
     if.app-id = 'com.apple.MobileSMS'
