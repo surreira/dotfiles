@@ -40,6 +40,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				sh = { "shfmt" },
+				scss = { "prettier" },
 				typescript = { "prettier" },
 				zsh = { "shfmt" },
 			},
