@@ -112,3 +112,7 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-id = 'com.raycast.macos'
     run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.panic.Transmit'
+    run = 'layout floating'
