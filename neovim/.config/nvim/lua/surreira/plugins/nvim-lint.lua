@@ -12,26 +12,17 @@ return {
 		}
 
 		lint.linters_by_ft = {
-			astro = { "cspell" },
-			bash = { "shellcheck", "cspell" },
-			blade = { "cspell" },
-			html = { "cspell" },
-			javascript = { "cspell" },
-			javascriptreact = { "cspell" },
-			json = { "cspell" },
-			markdown = { "cspell" },
-			php = { "cspell" },
-			python = { "cspell" },
-			sh = { "shellcheck", "cspell" },
-			text = { "cspell" },
-			typescript = { "cspell" },
-			typescriptreact = { "cspell" },
-			zsh = { "cspell" },
+			-- ["*"] = { "cspell" },
+			bash = { "shellcheck" },
+			sh = { "shellcheck" },
+			pyhton = { "flake8" },
+			javascript = { "eslint" },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
 			group = vim.api.nvim_create_augroup("RunLinter", { clear = true }),
 			callback = function()
+				lint.try_lint()
 				lint.try_lint("cspell")
 			end,
 		})

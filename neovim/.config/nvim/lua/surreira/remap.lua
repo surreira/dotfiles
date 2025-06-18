@@ -77,5 +77,5 @@ vim.keymap.set("n", "<leader>ª", "<cmd>vert res -5<CR>", { desc = "Decrease hor
 
 -- CSpell: add word to spell list
 vim.keymap.set("n", "zg", function()
-	require("surreira.cspell_manager").add_word_to_spell_list()
+	require("surreira.cspell-manager").add_word_to_spell_list()
 end, { noremap = true, silent = true })
