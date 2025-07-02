@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 vim.g.have_nerd_font = true
+vim.g.disable_autoformat = false
+vim.b.disable_autoformat = false
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -8,7 +11,9 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.smarttab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hlsearch = true
@@ -18,7 +23,7 @@ vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "80"
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.mouse = "a"
 vim.opt.termguicolors = true
@@ -35,6 +40,27 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars:append("space:·")
-vim.opt.listchars:append("eol:¬") -- or "⏎"
-vim.opt.listchars:append("nbsp:␣")
+vim.opt.listchars = { space = "·", tab = "│ ", eol = "¬", nbsp = "␣", trail = "·" }
+
+-- vim.opt.cmdheight = 0
+
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})
+
+-- Changes the background mode based on macOS's appearance setting.
+vim.o.background = "light"
+local function changeBackground()
+	local m = vim.fn.system("defaults read -g AppleInterfaceStyle")
+	m = m:gsub("%s+", "")
+	if m == "Dark" then
+		vim.o.background = "dark"
+	end
+end
+changeBackground()

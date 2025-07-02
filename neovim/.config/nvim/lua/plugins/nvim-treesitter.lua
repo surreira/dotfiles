@@ -4,14 +4,16 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
-		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
 	},
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		local configs = require("nvim-treesitter.configs")
+
+		configs.setup({
 			ensure_installed = {
 				"astro",
 				"bash",
+				"blade",
 				"c",
 				"comment",
 				"css",
@@ -39,15 +41,10 @@ return {
 			},
 
 			modules = {},
-			auto_install = true,
-			sync_install = false,
 			ignore_install = {},
-
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-
+			auto_install = false,
+			sync_install = false,
+			highlight = { enable = true, additional_vim_regex_highlighting = false },
 			indent = { enable = true },
 
 			incremental_selection = {
@@ -63,6 +60,10 @@ return {
 			textobjects = {
 				enable = true,
 			},
+		})
+
+		require("treesitter-context").setup({
+			enable = true,
 		})
 
 		---@class ParserConfig

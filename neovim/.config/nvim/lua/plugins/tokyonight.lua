@@ -1,21 +1,10 @@
--- Changes the background mode based on macOS's appearance setting.
-local function changeBackground()
-	local m = vim.fn.system("defaults read -g AppleInterfaceStyle")
-	m = m:gsub("%s+", "")
-	if m == "Dark" then
-		vim.o.background = "dark"
-	end
-end
-
-changeBackground()
-
 return {
 	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 1000,
-	init = function()
-		vim.cmd.colorscheme("tokyonight-storm")
-	end,
+	-- init = function()
+	-- 	vim.cmd.colorscheme("tokyonight-storm")
+	-- end,
 	opts = {
 		transparent = false,
 		styles = {
