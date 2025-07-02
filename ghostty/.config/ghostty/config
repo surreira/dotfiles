@@ -2,9 +2,9 @@
 ## User Interface ##
 ####################
 
-theme = dark:tokyonight-storm,light:tokyonight-day
+theme = dark:GruvboxDarkHard,light:GruvboxLightHard
 
-adjust-cell-height = 1
+adjust-cell-height = 25%
 adjust-cell-width = -1
 
 font-size = 13.5
@@ -12,6 +12,7 @@ font-family = "JetBrainsMono Nerd Font Mono"
 font-thicken = true
 font-thicken-strength = 225
 
+window-padding-balance = true
 window-padding-x = 16
 window-padding-y = 16
 window-inherit-font-size = false
