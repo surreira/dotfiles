@@ -6,7 +6,7 @@ return {
 			backdrop = 100,
 		},
 		grep = {
-			rg_opts = "--hidden",
+			rg_opts = "--hidden -n --column",
 		},
 	},
 	keys = {

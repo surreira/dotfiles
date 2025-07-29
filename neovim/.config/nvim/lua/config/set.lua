@@ -38,7 +38,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.winborder = "single"
+vim.opt.winborder = "rounded"
 
 vim.opt.list = true
 vim.opt.listchars = { space = "·", tab = "│ ", eol = "¬", nbsp = "␣", trail = "·" }
