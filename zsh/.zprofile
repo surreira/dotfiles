@@ -1,7 +1,8 @@
 PATH=$PATH:$HOME/.local/bin
 
 # Keybindings
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^f "tmux-sessionizer\n"  # CTRL+f
+bindkey -s ^Af "tmux-sessionizer\n" # CMD+f
 bindkey '^[^?' backward-kill-word
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward

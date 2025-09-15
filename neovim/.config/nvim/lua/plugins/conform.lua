@@ -24,6 +24,7 @@ return {
 			htmldjango = { "prettierd", "prettier", stop_after_first = true },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			lua = { "stylua" },
+			php = { "php_cs_fixer" },
 			python = { "isort", "black" },
 			sh = { "shfmt" },
 			scss = { "prettierd", "prettier", stop_after_first = true },
