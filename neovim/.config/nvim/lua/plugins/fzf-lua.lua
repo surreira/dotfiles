@@ -4,6 +4,10 @@ return {
 	opts = {
 		winopts = {
 			backdrop = 100,
+			preview = {
+				layout = "vertical",
+				vertical = "up:60%",
+			},
 		},
 		grep = {
 			rg_opts = "--hidden -n --column",
