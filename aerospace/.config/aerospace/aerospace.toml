@@ -44,7 +44,7 @@ automatically-unhide-macos-hidden-apps = false
 
     alt-shift-0 = 'balance-sizes'
 
-    alt-shift-a = 'resize smart -50'
+    alt-shift-e = 'resize smart -50'
     alt-shift-d = 'resize smart +50'
 
     alt-shift-ctrl-cmd-1 = 'workspace 1'
@@ -72,6 +72,10 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.AppStore'
+    run = 'layout floating'
 
 [[on-window-detected]]
     if.app-id = 'com.apple.finder'
