@@ -33,7 +33,17 @@ else
         PROJECTS+=("$line")
     done < <(find "$WORK_DIR" -mindepth 3 -maxdepth 3 -type d -iname "*.git")
 
-    FOLDERS=("${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}")
+    VAULTS_DIR="$HOME/vaults"
+    if [ ! -d "$VAULTS_DIR" ]; then
+        exit 1
+    fi
+
+    VAULTS=()
+    while IFS='' read -r line; do
+        VAULTS+=("$line")
+    done < <(find "$VAULTS_DIR" -mindepth 1 -maxdepth 1 -type d)
+
+    FOLDERS=("${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}" "${VAULTS[@]}")
     selected=$(printf "%s\n" "${FOLDERS[@]}" | fzf)
 fi
 
