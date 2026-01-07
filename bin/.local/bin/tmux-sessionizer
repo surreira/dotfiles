@@ -22,6 +22,7 @@ else
     while IFS='' read -r line; do
         SANDBOX+=("$line")
     done < <(find "$SANDBOX_DIR" -mindepth 1 -maxdepth 1 -type d)
+    SANDBOX+=("$SANDBOX_DIR")
 
     WORK_DIR="$HOME/dev/work"
     if [ ! -d "$WORK_DIR" ]; then
@@ -32,6 +33,7 @@ else
     while IFS='' read -r line; do
         PROJECTS+=("$line")
     done < <(find "$WORK_DIR" -mindepth 3 -maxdepth 3 -type d -iname "*.git")
+    PROJECTS+=("$WORK_DIR")
 
     VAULTS_DIR="$HOME/vaults"
     if [ ! -d "$VAULTS_DIR" ]; then
@@ -42,6 +44,7 @@ else
     while IFS='' read -r line; do
         VAULTS+=("$line")
     done < <(find "$VAULTS_DIR" -mindepth 1 -maxdepth 1 -type d)
+    VAULTS+=("$VAULTS_DIR")
 
     FOLDERS=("${DEVELOPER[@]}" "${PROJECTS[@]}" "${SANDBOX[@]}" "${VAULTS[@]}")
     selected=$(printf "%s\n" "${FOLDERS[@]}" | fzf)
