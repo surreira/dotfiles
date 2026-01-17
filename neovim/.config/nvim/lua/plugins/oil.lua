@@ -21,5 +21,12 @@ return {
 			end,
 			desc = "Open Oil plugin",
 		},
+		{
+			"<backspace>",
+			function()
+				require("oil").close()
+			end,
+			desc = "Close Oil plugin",
+		},
 	},
 }
