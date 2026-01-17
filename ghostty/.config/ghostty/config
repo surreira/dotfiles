@@ -19,6 +19,8 @@ window-inherit-font-size = false
 
 macos-titlebar-style = hidden
 
+initial-command = /bin/zsh -l -c "ghostty-tmux"
+
 ##################
 ## Keybindings ###
 ##################

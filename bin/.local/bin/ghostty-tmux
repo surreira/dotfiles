@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+SESSION_NAME="ghostty"
+
+# 1. Run tmux
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    tmux attach-session -t "$SESSION_NAME"
+else
+    tmux new-session -s "$SESSION_NAME" -d
+    tmux attach-session -t "$SESSION_NAME"
+fi
+
+# 2. When tmux closes, replace the script process with a new Zsh shell
+# This is to fix ghostty from closing the window when detaching/killing tmux.
+exec zsh -l
