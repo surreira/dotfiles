@@ -39,7 +39,6 @@ brew "webp", desc: "Image format providing lossless and lossy compression for we
 brew "yt-dlp", desc: "Feature-rich command-line audio/video downloader"
 cask "autodesk-fusion", desc: "Integrated CAD, CAM, CAE, and PCB software"
 cask "brave-browser", desc: "Web browser focusing on privacy"
-cask "camo-studio", desc: "Use your phone as a high-quality webcam with image tuning controls"
 cask "docker-desktop", desc: "App to build and share containerised applications and microservices"
 cask "font-fira-code-nerd-font", desc: "Developer targeted fonts with a high number of glyphs"
 cask "font-jetbrains-mono-nerd-font", desc: "Developer targeted fonts with a high number of glyphs"
