@@ -66,3 +66,5 @@ source $HOME/.aliases
 # Shell integrations
 source <(fzf --zsh)
 source <(fnm env --use-on-cd)
+
+export PATH="$HOME/.local/bin:$PATH"
