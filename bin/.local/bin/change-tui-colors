@@ -88,8 +88,9 @@ jankyborders_theme() {
 }
 
 neovim_theme $THEME
-tmux_theme $THEME
 jankyborders_theme $THEME
 
 # Using Ghostty terminal emulator now. No need to update alacritty.
 # alacritty_theme $THEME
+# tmux also doesn't need update with Ghostty
+# tmux_theme $THEME
