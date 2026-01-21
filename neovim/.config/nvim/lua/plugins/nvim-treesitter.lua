@@ -7,6 +7,7 @@ return {
 
 		-- Parsers To install (:TSInstall <language>)
 		-- or pass to the install function: require("nvim-treesitter").install()
+		-- "angular",
 		-- "astro",
 		-- "bash",
 		-- "blade",
