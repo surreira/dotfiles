@@ -82,11 +82,19 @@ automatically-unhide-macos-hidden-apps = false
     run = 'layout floating'
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.Home'
+    run = 'layout floating'
+
+[[on-window-detected]]
     if.app-id = 'com.apple.iphonesimulator'
     run = 'layout floating'
 
 [[on-window-detected]]
     if.app-id = 'com.apple.MobileSMS'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Passwords'
     run = 'layout floating'
 
 [[on-window-detected]]
@@ -100,11 +108,6 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-id = 'com.apple.weather'
     run = 'layout floating'
-
-[[on-window-detected]]
-    if.app-id = 'com.1password.1password'
-    run = 'layout floating'
-
 [[on-window-detected]]
     if.app-id = 'com.reincubate.macos.cam'
     run = 'layout floating'
@@ -119,4 +122,8 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-id = 'com.panic.Transmit'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.FileMerge'
     run = 'layout floating'
