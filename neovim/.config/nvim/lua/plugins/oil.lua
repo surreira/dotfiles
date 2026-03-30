@@ -10,6 +10,10 @@ return {
 		view_options = {
 			show_hidden = true,
 		},
+		keymaps = {
+			["q"] = "actions.close",
+			["<escape>"] = "actions.close",
+		},
 	},
 	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	lazy = false,
@@ -20,13 +24,6 @@ return {
 				require("oil").open_float()
 			end,
 			desc = "Open Oil plugin",
-		},
-		{
-			"<backspace>",
-			function()
-				require("oil").close()
-			end,
-			desc = "Close Oil plugin",
 		},
 	},
 }
