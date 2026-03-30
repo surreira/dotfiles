@@ -65,3 +65,18 @@ local function changeBackground()
 	end
 end
 changeBackground()
+
+-- Blade syntax highlight
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})
+
+vim.treesitter.language.register("blade", "blade")
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
+})

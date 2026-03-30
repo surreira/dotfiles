@@ -1,9 +1,21 @@
-(directive) @function
-(directive_start) @function
-(directive_end) @function
+;; directives like @if, @else
+(directive) @function.macro
+(directive_start) @function.macro
+(directive_end) @function.macro
+
+;; comments {{-- --}}
 (comment) @comment
-((parameter) @include (#set! "priority" 110))
-((php_only) @include (#set! "priority" 110))
-((bracket_start) @function (#set! "priority" 120))
-((bracket_end) @function (#set! "priority" 120))
-(keyword) @function
+
+;; keywords inside directives
+(keyword) @keyword
+
+;; Parameters inside @directive(...)
+((parameter) @variable.parameter)
+
+;; PHP code blocks @php ... @endphp
+((php_only) @injection.content
+  (#set! injection.language "php"))
+
+;; Brackets
+(bracket_start) @punctuation.bracket
+(bracket_end) @punctuation.bracket

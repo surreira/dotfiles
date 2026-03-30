@@ -1,4 +1,11 @@
+;; Inject HTML into static text
 ((text) @injection.content
-    (#not-has-ancestor? @injection.content "envoy")
-    (#set! injection.combined)
-    (#set! injection.language php))
+ (#set! injection.language "html"))
+
+;; Inject PHP into parameters: @if($var)
+((parameter) @injection.content
+ (#set! injection.language "php"))
+
+;; Inject PHP into {{ $var }}
+((inline_php) @injection.content
+ (#set! injection.language "php"))
